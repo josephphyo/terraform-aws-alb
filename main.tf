@@ -55,13 +55,14 @@ resource "aws_security_group" "regional_instance_sg" {
 ## EC2 Instance Resource 
 
 resource "aws_instance" "regional_webserver" {
+  count                  = var.ins_count
   ami                    = data.aws_ami.ubuntu.id
   instance_type          = var.instance_type
   vpc_security_group_ids = [aws_security_group.regional_instance_sg.id]
 
 
   tags = {
-    Name = "WEB-SERVER-1"
+    Name = "WEB-SERVER-${count.index}"
   }
 }
 
@@ -108,8 +109,9 @@ resource "aws_lb_target_group" "regional_lb_tg" {
 ## Target Group Attachment Resource (Instance Target Group)
 
 resource "aws_lb_target_group_attachment" "regional_lb_tg_attach" {
+  count            = var.tg_att_count
   target_group_arn = aws_lb_target_group.regional_lb_tg.arn
-  target_id        = aws_instance.regional_webserver.id
+  target_id        = element(split(",", join(",", aws_instance.regional_webserver.*.id)), count.index)
   port             = 80
 }
 

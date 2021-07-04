@@ -34,6 +34,7 @@ No modules.
 |------|-------------|------|---------|:--------:|
 | <a name="input_access_key"></a> [access\_key](#input\_access\_key) | n/a | `string` | n/a | yes |
 | <a name="input_ingress_cidr"></a> [ingress\_cidr](#input\_ingress\_cidr) | n/a | `list(string)` | <pre>[<br>  "0.0.0.0/0"<br>]</pre> | no |
+| <a name="input_ins_count"></a> [ins\_count](#input\_ins\_count) | n/a | `number` | `1` | no |
 | <a name="input_instance_sg_name"></a> [instance\_sg\_name](#input\_instance\_sg\_name) | n/a | `string` | n/a | yes |
 | <a name="input_instance_type"></a> [instance\_type](#input\_instance\_type) | n/a | `string` | `"t3.micro"` | no |
 | <a name="input_internal_lb"></a> [internal\_lb](#input\_internal\_lb) | n/a | `bool` | `false` | no |
@@ -44,6 +45,7 @@ No modules.
 | <a name="input_lb_type"></a> [lb\_type](#input\_lb\_type) | n/a | `string` | `"application"` | no |
 | <a name="input_region"></a> [region](#input\_region) | n/a | `string` | n/a | yes |
 | <a name="input_secret_key"></a> [secret\_key](#input\_secret\_key) | n/a | `string` | n/a | yes |
+| <a name="input_tg_att_count"></a> [tg\_att\_count](#input\_tg\_att\_count) | n/a | `number` | `1` | no |
 | <a name="input_tg_name"></a> [tg\_name](#input\_tg\_name) | n/a | `string` | n/a | yes |
 | <a name="input_tg_vpc_id"></a> [tg\_vpc\_id](#input\_tg\_vpc\_id) | n/a | `string` | n/a | yes |
 
