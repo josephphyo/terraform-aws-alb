@@ -10,13 +10,22 @@ variable "secret_key" {
   type = string
 }
 
-variable "sg_name" {
+variable "lb_sg_name" {
+  type = string
+}
+
+variable "instance_sg_name" {
   type = string
 }
 
 variable "ingress_cidr" {
   type    = list(string)
   default = ["0.0.0.0/0"]
+}
+
+variable "instance_type" {
+  type    = string
+  default = "t3.micro"
 }
 
 variable "lb_name" {

@@ -1,7 +1,7 @@
 ## Application Load Balancer Security Group Resource 
 
 resource "aws_security_group" "regional_lb_sg" {
-  name        = var.sg_name
+  name        = var.lb_sg_name
   description = "Allow HTTP inbound traffic"
 
 
@@ -21,15 +21,43 @@ resource "aws_security_group" "regional_lb_sg" {
   }
 
   tags = {
-    Name = var.sg_name
+    Name = var.lb_sg_name
+  }
+}
+
+## EC2 Instance Security Group Resource 
+
+resource "aws_security_group" "regional_instance_sg" {
+  name        = var.instance_sg_name
+  description = "Allow SSH inbound traffic"
+
+
+  ingress {
+    description = "ALLOW SSH"
+    from_port   = 22
+    to_port     = 22
+    protocol    = "tcp"
+    cidr_blocks = var.ingress_cidr
+  }
+
+  egress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  tags = {
+    Name = var.instance_sg_name
   }
 }
 
 ## EC2 Instance Resource 
 
 resource "aws_instance" "regional_webserver" {
-  ami           = data.aws_ami.ubuntu.id
-  instance_type = "t3.micro"
+  ami                    = data.aws_ami.ubuntu.id
+  instance_type          = var.instance_type
+  vpc_security_group_ids = [aws_security_group.regional_instance_sg.id]
 
 
   tags = {
@@ -64,6 +92,17 @@ resource "aws_lb_target_group" "regional_lb_tg" {
   port     = 80
   protocol = "HTTP"
   vpc_id   = var.tg_vpc_id
+
+  health_check {
+    enabled             = true
+    path                = "/"
+    port                = 80
+    healthy_threshold   = 6
+    unhealthy_threshold = 2
+    timeout             = 2
+    interval            = 5
+    matcher             = "200"
+  }
 }
 
 ## Target Group Attachment Resource (Instance Target Group)
