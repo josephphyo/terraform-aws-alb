@@ -1,4 +1,26 @@
-## Requirements
+## AWS ALB Terraform module
+#### Terraform module which creates ALB with Target Group resources on AWS.
+
+##### Usage
+
+```
+module "alb" {
+  source  = "josephphyo/alb/aws"
+  version = "0.1.4"
+  
+  region = "us-east-1"
+  instance_sg_name = "regional-ec2-sg"
+  lb_name = "regional-frontend-lb"
+  lb_sg_name = "regional-lb-sg"
+  lb_subnet_mapping_1 = "subnet-abcd5678"
+  lb_subnet_mapping_2 = "subnet-abcd5678"
+  tg_name = "regional-alb-tg"
+  tg_vpc_id = "vpc-abcd5678"
+}
+
+```
+
+##### Requirements
 
 | Name | Version |
 |------|---------|
