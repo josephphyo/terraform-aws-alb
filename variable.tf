@@ -1,7 +1,3 @@
-variable "region" {
-  type = string
-}
-
 variable "lb_sg_name" {
   type = string
 }

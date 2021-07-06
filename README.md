@@ -6,9 +6,7 @@
 ```
 module "alb" {
   source  = "josephphyo/alb/aws"
-  version = "0.1.4"
   
-  region = "us-east-1"
   instance_sg_name = "regional-ec2-sg"
   lb_name = "regional-frontend-lb"
   lb_sg_name = "regional-lb-sg"
@@ -64,7 +62,6 @@ No modules.
 | <a name="input_lb_subnet_mapping_1"></a> [lb\_subnet\_mapping\_1](#input\_lb\_subnet\_mapping\_1) | n/a | `string` | n/a | yes |
 | <a name="input_lb_subnet_mapping_2"></a> [lb\_subnet\_mapping\_2](#input\_lb\_subnet\_mapping\_2) | n/a | `string` | n/a | yes |
 | <a name="input_lb_type"></a> [lb\_type](#input\_lb\_type) | n/a | `string` | `"application"` | no |
-| <a name="input_region"></a> [region](#input\_region) | n/a | `string` | n/a | yes |
 | <a name="input_tg_att_count"></a> [tg\_att\_count](#input\_tg\_att\_count) | n/a | `number` | `1` | no |
 | <a name="input_tg_name"></a> [tg\_name](#input\_tg\_name) | n/a | `string` | n/a | yes |
 | <a name="input_tg_vpc_id"></a> [tg\_vpc\_id](#input\_tg\_vpc\_id) | n/a | `string` | n/a | yes |
