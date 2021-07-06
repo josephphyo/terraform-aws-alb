@@ -21,6 +21,10 @@ variable "instance_type" {
   default = "t3.micro"
 }
 
+variable "ins_subnet_id" {
+  type = string
+}
+
 variable "lb_name" {
   type = string
 }

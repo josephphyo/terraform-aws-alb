@@ -8,6 +8,7 @@ module "alb" {
   source  = "josephphyo/alb/aws"
   
   instance_sg_name = "regional-ec2-sg"
+  ins_subnet_id = "subnet-abcd5678"
   lb_name = "regional-frontend-lb"
   lb_sg_name = "regional-lb-sg"
   lb_subnet_mapping_1 = "subnet-abcd5678"
@@ -54,6 +55,7 @@ No modules.
 |------|-------------|------|---------|:--------:|
 | <a name="input_ingress_cidr"></a> [ingress\_cidr](#input\_ingress\_cidr) | n/a | `list(string)` | <pre>[<br>  "0.0.0.0/0"<br>]</pre> | no |
 | <a name="input_ins_count"></a> [ins\_count](#input\_ins\_count) | n/a | `number` | `1` | no |
+| <a name="input_ins_subnet_id"></a> [ins\_subnet\_id](#input\_ins\_subnet\_id) | n/a | `string` | n/a | yes |
 | <a name="input_instance_sg_name"></a> [instance\_sg\_name](#input\_instance\_sg\_name) | n/a | `string` | n/a | yes |
 | <a name="input_instance_type"></a> [instance\_type](#input\_instance\_type) | n/a | `string` | `"t3.micro"` | no |
 | <a name="input_internal_lb"></a> [internal\_lb](#input\_internal\_lb) | n/a | `bool` | `false` | no |
