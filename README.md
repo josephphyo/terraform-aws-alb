@@ -8,9 +8,11 @@ module "alb" {
   source  = "josephphyo/alb/aws"
   
   instance_sg_name = "regional-ec2-sg"
+  instance_sg_vpc_id = "vpc-abcd5678"
   ins_subnet_id = "subnet-abcd5678"
   lb_name = "regional-frontend-lb"
   lb_sg_name = "regional-lb-sg"
+  lb_sg_vpc_id = "vpc-abcd5678"
   lb_subnet_mapping_1 = "subnet-abcd5678"
   lb_subnet_mapping_2 = "subnet-abcd5678"
   tg_name = "regional-alb-tg"
@@ -57,10 +59,12 @@ No modules.
 | <a name="input_ins_count"></a> [ins\_count](#input\_ins\_count) | n/a | `number` | `1` | no |
 | <a name="input_ins_subnet_id"></a> [ins\_subnet\_id](#input\_ins\_subnet\_id) | n/a | `string` | n/a | yes |
 | <a name="input_instance_sg_name"></a> [instance\_sg\_name](#input\_instance\_sg\_name) | n/a | `string` | n/a | yes |
+| <a name="input_instance_sg_vpc_id"></a> [instance\_sg\_vpc\_id](#input\_instance\_sg\_vpc\_id) | n/a | `string` | n/a | yes |
 | <a name="input_instance_type"></a> [instance\_type](#input\_instance\_type) | n/a | `string` | `"t3.micro"` | no |
 | <a name="input_internal_lb"></a> [internal\_lb](#input\_internal\_lb) | n/a | `bool` | `false` | no |
 | <a name="input_lb_name"></a> [lb\_name](#input\_lb\_name) | n/a | `string` | n/a | yes |
 | <a name="input_lb_sg_name"></a> [lb\_sg\_name](#input\_lb\_sg\_name) | n/a | `string` | n/a | yes |
+| <a name="input_lb_sg_vpc_id"></a> [lb\_sg\_vpc\_id](#input\_lb\_sg\_vpc\_id) | n/a | `string` | n/a | yes |
 | <a name="input_lb_subnet_mapping_1"></a> [lb\_subnet\_mapping\_1](#input\_lb\_subnet\_mapping\_1) | n/a | `string` | n/a | yes |
 | <a name="input_lb_subnet_mapping_2"></a> [lb\_subnet\_mapping\_2](#input\_lb\_subnet\_mapping\_2) | n/a | `string` | n/a | yes |
 | <a name="input_lb_type"></a> [lb\_type](#input\_lb\_type) | n/a | `string` | `"application"` | no |

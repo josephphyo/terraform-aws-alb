@@ -2,7 +2,15 @@ variable "lb_sg_name" {
   type = string
 }
 
+variable "lb_sg_vpc_id" {
+  type = string
+}
+
 variable "instance_sg_name" {
+  type = string
+}
+
+variable "instance_sg_vpc_id" {
   type = string
 }
 

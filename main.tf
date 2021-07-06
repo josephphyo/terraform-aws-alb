@@ -3,6 +3,7 @@
 resource "aws_security_group" "regional_lb_sg" {
   name        = var.lb_sg_name
   description = "Allow HTTP inbound traffic"
+  vpc_id      = var.lb_sg_vpc_id
 
 
   ingress {
@@ -30,6 +31,7 @@ resource "aws_security_group" "regional_lb_sg" {
 resource "aws_security_group" "regional_instance_sg" {
   name        = var.instance_sg_name
   description = "Allow SSH inbound traffic"
+  vpc_id      = var.instance_sg_vpc_id
 
 
   ingress {
